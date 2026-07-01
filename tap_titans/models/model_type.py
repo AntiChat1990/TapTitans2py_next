@@ -180,3 +180,4 @@ class TitanAreaTypes(str, Enum):
     AllTorsoHPMult = "AllTorsoHPMult"
     AllLegsHPMult = "AllLegsHPMult"
     ArmorLimbsHPMult = "ArmorLimbsHPMult"
+    ArmorTorsoHPMult = "ArmorTorsoHPMult"
