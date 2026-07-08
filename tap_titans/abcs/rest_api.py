@@ -5,7 +5,7 @@ from enum import Enum
 from tap_titans.models.generic import ClanCode
 from tap_titans.abcs.error import UnknownError
 from tap_titans.utils.base import Struct, field
-from tap_titans.models.player import PlayerData, PlayerRaidResearchTree, PlayerCard, PlayerRaidResearchBonuses
+from tap_titans.models.player import PlayerData, PlayerRaidResearchTree, PlayerCard, PlayerRaidResearchBonuses, BoostedCards
 
 
 __all__ = (
@@ -65,6 +65,9 @@ class ClanPlayerData(Struct):
     summon_level: int | None = field(default=None)
     cards: tuple[PlayerCard, ...] | None = field(default=None)
     equipment_set: tuple[str, ...] | None = field(default=None)
+    boosted_cards: tuple[BoostedCards, ...] | None = field(default=None)
+    # gemstone_research_tree_raid_bonuses: GemstoneRaidResearchBonuses | None = field(default=None)
+
 
     @property
     def previous_rank(self) -> str | None:
@@ -101,6 +104,7 @@ class ClanDataProperties(str, Enum):
     previous_rank = "previous_rank"
     cards = "cards"
     equipment_set = "equipment_set"
+    boosted_cards = "boosted_cards"
 
     @classmethod
     def all(cls) -> tuple['ClanDataProperties', ...]:
