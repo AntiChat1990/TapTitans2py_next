@@ -53,7 +53,7 @@ class BoostedCards(Struct):
     slot_number: int
     skill_name: str
     category: str
-    boost_level: imt
+    boost_level: int
 
 
 class PlayerTitanCard(Struct):
