@@ -155,6 +155,7 @@ class PlayerDataProperties(str, Enum):
     clan_scroll = "clan_scroll"
     skill_tree = "skill_tree"
     equipment_set = "equipment_set"
+    boosted_cards = "boosted_cards"
 
     @classmethod
     def all(cls) -> tuple['PlayerDataProperties', ...]:
