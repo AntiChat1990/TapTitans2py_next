@@ -49,6 +49,12 @@ class PlayerSkill(Struct):
     level: int
     skill_id: str
 
+class BoostedCards(Struct):
+    slot_number: int
+    skill_name: str
+    category: str
+    boost_level: imt
+
 
 class PlayerTitanCard(Struct):
     titan_id: str
@@ -160,6 +166,7 @@ class PlayerData(Struct):
     hero_weapon: tuple[PlayerHeroWeapon, ...] | None = field(default=None)
     clan_scroll: tuple[PlayerClanScroll, ...] | None = field(default=None)
     skill_tree: tuple[PlayerSkill, ...] | None = field(default=None)
+    boosted_cards: tuple[BoostedCards, ...] | None = field(default=None)
     equipment_set: tuple[str, ...] | None = field(default=None)
     total_hero_weapons: int | None = field(name="total_helper_weapons", default=None)
 
