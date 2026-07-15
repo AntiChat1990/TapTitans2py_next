@@ -5,7 +5,7 @@ from enum import Enum
 from tap_titans.models.generic import ClanCode
 from tap_titans.abcs.error import UnknownError
 from tap_titans.utils.base import Struct, field
-from tap_titans.models.player import PlayerData, PlayerRaidResearchTree, PlayerCard, PlayerRaidResearchBonuses, BoostedCards
+from tap_titans.models.player import PlayerData, PlayerRaidResearchTree, PlayerCard, PlayerRaidResearchBonuses, BoostedCards,PlayerGemstoneBonuses
 
 
 __all__ = (
@@ -59,6 +59,7 @@ class ClanPlayerData(Struct):
     # titan_cards is excluded since it's a mistake by GameHive to include it and slows down the .all() by a lot
     raid_research_tree: PlayerRaidResearchTree | None = field(default=None)
     raid_research_bonuses: PlayerRaidResearchBonuses | None = field(default=None)
+    gemstone_research_tree_raid_bonuses: PlayerGemstoneBonuses | None = field(default=None)
     loyalty_level: int | None = field(default=None)
     daily_raid_tickets: int | None = field(default=None)
     _previous_rank: str | float | None = field(name="previous_rank", default=None) # This field is rarely a float, I think when it's a zero value.
@@ -99,6 +100,7 @@ class ClanDataProperties(str, Enum):
     # titan_cards is excluded since it's a mistake by GameHive to include it and slows down the .all() by a lot
     raid_research_tree = "raid_research_tree"
     raid_research_bonuses = "raid_research_bonuses"
+    gemstone_research_tree_raid_bonuses = "gemstone_research_tree_raid_bonuses"
     loyalty_level = "loyalty_level"
     daily_raid_tickets = "daily_raid_tickets"
     previous_rank = "previous_rank"
@@ -144,6 +146,7 @@ class PlayerDataProperties(str, Enum):
     titan_cards = "titan_cards"
     raid_research_tree = "raid_research_tree"
     raid_research_bonuses = "raid_research_bonuses"
+    gemstone_research_tree_raid_bonuses = "gemstone_research_tree_raid_bonuses"
     loyalty_level = "loyalty_level"
     daily_raid_tickets = "daily_raid_tickets"
     previous_rank = "previous_rank"
